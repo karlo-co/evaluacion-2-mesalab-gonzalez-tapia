@@ -1,5 +1,3 @@
--- Schema para la aplicación Mesalab (PostgreSQL)
-
 -- Tabla de roles
 CREATE TABLE IF NOT EXISTS roles (
   id_rol SERIAL PRIMARY KEY,
@@ -14,7 +12,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
   clave VARCHAR(255) NOT NULL,
   id_rol INTEGER NOT NULL REFERENCES roles(id_rol) ON DELETE RESTRICT,
   estado VARCHAR(50) NOT NULL DEFAULT 'activo',
-  creado_en TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now()
+  creado_en TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Tabla de categorías
@@ -32,7 +30,7 @@ CREATE TABLE IF NOT EXISTS solicitudes (
   descripcion TEXT NOT NULL,
   prioridad VARCHAR(20) NOT NULL DEFAULT 'media',
   estado VARCHAR(50) NOT NULL DEFAULT 'pendiente',
-  fecha_creacion TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now()
+  fecha_creacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Índices útiles

@@ -1,25 +1,23 @@
--- Datos iniciales para Mesalab (Postgres)
--- Nota: `clave` está escrita en texto plano en este ejemplo para pruebas locales.
--- En producción, usa hashing seguro antes de guardar las contraseñas.
+
 
 -- Roles iniciales
-INSERT INTO roles (nombre_rol) VALUES
-('admin'),
-('usuario');
+INSERT INTO roles (id_rol, nombre_rol) VALUES
+(1, 'admin'),
+(2, 'usuario');
 
 -- Categorías iniciales
-INSERT INTO categorias (nombre_categoria) VALUES
-('Soporte técnico'),
-('Mantenimiento'),
-('Consultas generales');
+INSERT INTO categorias (id_categoria, nombre_categoria) VALUES
+(1, 'Soporte técnico'),
+(2, 'Mantenimiento'),
+(3, 'Consultas generales');
 
 -- Usuarios iniciales
-INSERT INTO usuarios (nombre, correo, clave, id_rol, estado) VALUES
-('Administrador', 'admin@ejemplo.com', 'adminpass', 1, 'activo'),
-('Usuario de prueba', 'usuario@ejemplo.com', 'userpass', 2, 'activo'),
-('Lucía García', 'lucia.garcia@example.com', 'luciapass', 2, 'activo'),
-('Carlos Méndez', 'carlos.mendez@example.com', 'carlospass', 2, 'suspendido'),
-('Marta Ríos', 'marta.rios@example.com', 'martapass', 2, 'activo');
+INSERT INTO usuarios (id_usuario, nombre, correo, clave, id_rol, estado) VALUES
+(1, 'Administrador', 'admin@ejemplo.com', 'adminpass', 1, 'activo'),
+(2, 'Usuario de prueba', 'usuario@ejemplo.com', 'userpass', 2, 'activo'),
+(3, 'Lucía García', 'lucia.garcia@example.com', 'luciapass', 2, 'activo'),
+(4, 'Carlos Méndez', 'carlos.mendez@example.com', 'carlospass', 2, 'suspendido'),
+(5, 'Marta Ríos', 'marta.rios@example.com', 'martapass', 2, 'activo');
 
 -- Solicitudes iniciales
 INSERT INTO solicitudes (id_usuario, id_categoria, titulo, descripcion, prioridad, estado) VALUES
