@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mesalab — Panel</title>
+  <link rel="stylesheet" href="style.css">
+ </head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="brand">Mesalab — Panel</h1>
+      <nav class="nav"><a href="index.html" class="nav-link">Inicio</a><a href="login.html" class="nav-link">Salir</a></nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section aria-labelledby="new-solicitud">
+      <h2 id="new-solicitud">Registrar solicitud</h2>
+      <form id="solicitudForm" novalidate>
+        <div id="panelMessage" class="form-message hidden" aria-live="polite"></div>
+        <div class="form-row">
+          <div style="flex:1">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" required>
+          </div>
+          <div style="width:280px">
+            <label for="correo">Correo</label>
+            <input id="correo" name="correo" type="email" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div style="flex:1">
+            <label for="asunto">Asunto</label>
+            <input id="asunto" name="asunto" type="text" required>
+          </div>
+          <div style="width:180px">
+            <label for="prioridad">Prioridad</label>
+            <select id="prioridad" name="prioridad">
+              <option value="baja">Baja</option>
+              <option value="media" selected>Media</option>
+              <option value="alta">Alta</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row column">
+          <div>
+            <label for="descripcion">Descripción</label>
+            <textarea id="descripcion" name="descripcion"></textarea>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn" type="submit">Registrar solicitud</button>
+        </div>
+      </form>
+    </section>
+
+    <section aria-labelledby="list-solicitudes" style="margin-top:1.25rem">
+      <h2 id="list-solicitudes">Solicitudes registradas</h2>
+      <div class="table-wrap">
+        <table id="solTable" aria-describedby="table-desc">
+          <caption id="table-desc" style="text-align:left;padding:0.5rem 0;color:var(--muted)">Lista de solicitudes guardadas localmente</caption>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Correo</th>
+              <th>Asunto</th>
+              <th>Prioridad</th>
+              <th>Fecha</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="muted">Las solicitudes se almacenan en el navegador (localStorage) en este prototipo.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
